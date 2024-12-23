@@ -205,6 +205,10 @@ footer {
   color: #fff;
   padding: 20px 10%;
   text-align: center;
+  position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
 }
 
 footer p {
@@ -212,12 +216,15 @@ footer p {
 }
 /* Signup Section */
 #signup {
-  /* background-image: url("images/14.jpeg");
-  background-repeat: no-repeat; */
-  padding: 50px 10%;
+   padding: 50px 10%;
   text-align: center;
   background-size: contain;
   width: 100%;
+  background-image: url("images/background1.jpg");
+  background-repeat:"no-repeat";
+  background-position:"center";
+  background-size: cover;
+  height:100%;
   /* height: 100%; */
 }
 
@@ -232,6 +239,7 @@ footer p {
   flex-direction: column;
   align-items: center;
   gap: 15px;
+  
 }
 
 #signup-form input {
@@ -249,6 +257,7 @@ footer p {
   border: none;
   border-radius: 5px;
   font-size: 1.1rem;
+  
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -264,8 +273,14 @@ footer p {
 }
 #login {
   background-color: #d5a6bd;
+  background-image: url("images/background1.jpg");
+  background-repeat:"no-repeat";
+  background-position:"center";
   padding: 50px 10%;
   text-align: center;
+  background-size: contain;
+  background-size: cover;
+  
 }
 
 #login h2 {
@@ -278,6 +293,7 @@ footer p {
   display: flex;
   flex-direction: column;
   align-items: center;
+ 
   gap: 15px;
 }
 
