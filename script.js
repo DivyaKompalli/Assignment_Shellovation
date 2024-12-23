@@ -61,32 +61,47 @@ async function addToCart(productId, quantity) {
 }
 
 // Handle user login
-document
-  .getElementById("login-form")
-  .addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
+document.getElementById('login-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent the default form submission
 
-    try {
-      const response = await fetch("http://localhost:5000/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
-      const result = await response.json();
-      if (response.ok) {
-        sessionStorage.setItem("userId", result.userId); // Store userId in session
-        window.location.href = "index.html"; // Redirect to homepage
-      } else {
-        document.getElementById("login-message").innerText = result.error;
+  const email = event.target.email.value;
+  const password = event.target.password.value;
+
+  // Prepare the data to be sent to the server
+  const loginData = {
+      email: email,
+      password: password
+  };
+
+  // Send a POST request to the backend API
+  fetch('/api/login', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(loginData)
+  })
+  .then(response => {
+      if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
       }
-    } catch (error) {
-      console.error("Error:", error);
-    }
+      return response.json(); // Parse the JSON from the response
+  })
+  .then(data => {
+      // Check if login was successful
+      if (data.success) {
+          document.getElementById('login-message').textContent = "Login successful!";
+          // Redirect to another page or perform other actions
+          window.location.href = "index.html"; // Redirect to homepage
+      } else {
+          document.getElementById('login-message').textContent = "Invalid email or password.";
+      }
+  })
+  .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+      document.getElementById('login-message').textContent = "An error occurred. Please try again.";
   });
+});
 
 // Handle user signup
 document

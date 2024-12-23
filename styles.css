@@ -145,6 +145,18 @@ nav a:hover {
 .category-item button:hover {
   background-color: #b5849c;
 }
+/* .category-item #log{
+  padding: 10px 20px;
+  background-color: #d5a6bd;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 20px;
+  margin-top: 10px;
+} */
 
 /* Cart Section */
 #cart h2 {
